@@ -3,7 +3,7 @@
     index.php permet :
         1. de charger la configuration
         2. la connexion à la base de données 
-        3. de transférer les requêtes aux contrôleurs correspondants
+        3. appeler le contrôleur correspondant
         4. de renvoyer le rendu déterminé par le template
 */
 
