@@ -35,19 +35,15 @@ try {
         DATABASE_DSN,
         DATABASE_USER, 
         DATABASE_PASSWORD, 
-        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
+        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8") // on défini l'UTF-8
     );
 
-    $pdo->setAttribute(
-        PDO::ATTR_ERRMODE, 
-        PDO::ERRMODE_EXCEPTION
-    );
+    // on défini l'attribut "ATTR_ERRMODE afin de lever une exception en cas d'erreur
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $e) {
     $msg = "Base de données inaccessible.";
     die($msg);
 }
-
-
 
 ?>
