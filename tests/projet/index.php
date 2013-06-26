@@ -58,7 +58,11 @@ try {
 
     // si la page fait partie des pages autorisées
     if(is_int(array_search($_GET["page"], $whitelist))){
+        // controleur
         require(ROOT."/includes/".$_GET["page"].".inc.php");
+
+        // structure de la page
+        require(ROOT."/templates/base.tpl.php");
     }
     else{
         throw new BlackListException('page refusée');
