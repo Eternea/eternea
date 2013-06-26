@@ -46,4 +46,27 @@ catch(PDOException $e) {
     die($msg);
 }
 
+
+/* * * 
+ 3. Routage des requêtes
+ * * */
+class BlackListException extends Exception {}
+
+try {
+    // chargement de la liste des pages autorisées
+    $whitelist = file(ROOT."/config/pages.txt");
+
+    // si la page fait partie des pages autorisées
+    if(is_int(array_search($_GET["page"], $whitelist))){
+        require(ROOT."/includes/".$_GET["page"].".inc.php");
+    }
+    else{
+        throw new BlackListException('page refusée');
+    }
+}
+catch(BlackListException $e){
+    print_r($e);
+    header("HTTP/1.0 404 Not Found");
+}
+
 ?>

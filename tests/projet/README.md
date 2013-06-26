@@ -17,6 +17,7 @@ Eternea : projet PHP
 - `/index.php` : page par laquelle transite toutes les requêtes dynamiques (= pages du site générées via PHP)
 - `/README.md` : description du projet
 - dans `/config/` :
-  - `/config/config.ini` : fichier INI permettant de paramétrer l'installation
-  - `/config/tests.db` : base de données de test
-  - `/config/.secret_key` : clé secrète permettant de chiffrer les mots de passe
+  - `/config/config.ini` 	: fichier INI permettant de paramétrer l'installation
+  - `/config/pages.txt` 	: liste des pages autorisées
+  - `/config/tests.db` 		: base de données de test
+  - `/config/.secret_key` 	: clé secrète permettant de chiffrer les mots de passe
