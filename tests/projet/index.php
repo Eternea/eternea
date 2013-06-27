@@ -50,7 +50,7 @@ catch(PDOException $e) {
 /* * * 
  3. Routage des requêtes
  * * */
-class BlackListException extends Exception {}
+class BlackListException extends Exception {} // sert à lever une exception personnalisée qu'on récupère ensuite pour faire une erreur 404
 
 try {
     // chargement de la liste des pages autorisées
