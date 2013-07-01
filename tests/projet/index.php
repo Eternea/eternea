@@ -54,10 +54,10 @@ class BlackListException extends Exception {} // sert à lever une exception per
 
 try {
     // chargement de la liste des pages autorisées
-    $whitelist = file(ROOT."/config/pages.txt");
+    $whitelist = file(ROOT."/config/pages.txt", FILE_IGNORE_NEW_LINES);
 
     // si la page fait partie des pages autorisées
-    if(is_int(array_search($_GET["page"], $whitelist))){
+    if(in_array($_GET["page"], $whitelist)){
         // controleur
         require(ROOT."/includes/".$_GET["page"].".inc.php");
 
