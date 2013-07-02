@@ -40,3 +40,15 @@ td {
 
 
 }
+
+
+
+/***** Erreur******/
+.erreur {
+	border:1px solid #F00;								/*bordure*/
+	color:red;											/*couleur*/
+	font-weight:bold;									/*Mettre en gras*/
+}
+/***** Fin erreur ******/
+
+
