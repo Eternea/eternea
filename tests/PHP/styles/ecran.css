@@ -33,22 +33,16 @@ label {
 
 table {
 	border:1px solid #000;
-
 }
+
+
 td {
 	border:1px solid #EEE;
-
-
 }
 
-
-
-/***** Erreur******/
 .erreur {
-	border:1px solid #F00;								/*bordure*/
-	color:red;											/*couleur*/
-	font-weight:bold;									/*Mettre en gras*/
+	color:red;											
+	font-weight:bold;									
 }
-/***** Fin erreur ******/
 
 

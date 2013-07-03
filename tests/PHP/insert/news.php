@@ -7,7 +7,7 @@ include ("../includes/sql.php");
 
 <form method="POST" action="news2.php">
 
-<!-- Type -->
+
 <?php
 //echo "<SELECT NAME='Uti' onChange='FocusObjet()'>"; 
 $requete = "SELECT nomtypeevent  FROM typeevent"; 
@@ -28,30 +28,38 @@ echo "</SELECT>";
 <label for= "nom">Nom/ titre : </label>
 <input type="text" size="50" maxlength="250"id="nom" name="nom" />
 </p>
+
+
 <!-- Prenom -->
 <p>
 <label for= "prenom">Prénom : </label>
 <input id="prenom" size="50" type="text" maxlength="250" name="prenom"/>
 </p>
+
+
 <!-- Date début -->
 <p>
 <label for= "datedeb">date de naissance :</label>
 <input id="datedeb" size="50" type="text" maxlength="250" value="YYYY-MM-JJ" name="datedeb"/>
 </p>
 
-<!-- Date début -->
+
+<!-- Date fin -->
 <p>
 <label for= "datefin">date de fin :</label>
 <input id="datefin" size="50" type="text" maxlength="250" value="YYYY-MM-JJ ou null" name="datefin"/>
 </p>
 
+<!-- divers -->
 <p>
-<label for= "datefin"> Divers : </label>
+<label for= "divers"> Divers : </label>
 <textarea name="divers" rows="30" cols="80" /></textarea>
 </p>
-<input type="submit" />
-</form>
 
+<!--envoi et effacer -->
+<input type="submit"/>
+<input type="reset"/>
+</form>
 
 
 <?php

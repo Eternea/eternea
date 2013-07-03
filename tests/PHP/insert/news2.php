@@ -1,5 +1,5 @@
 <?php
-$titre = "Administration";
+$titre = "Traitement";
 include ("../includes/header.php");
 include ("../includes/menu.php");
 include ("../includes/sql.php");
@@ -22,7 +22,7 @@ $requete = "INSERT INTO evenement (nom,prenom,datedeb,datefin,divers) VALUES ('$
 $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
 
 // ok
-echo '<p>Merci, l\'evenement '.$nom. .$prenom. ' a bien été ajouté !</p>';
+//echo '<p>Merci, l\'evenement '.$nom.  ' ' .$prenom. ' a bien été ajouté !</p>';
 
 
 // Gestion des erreurs
@@ -30,87 +30,73 @@ echo '<p>Merci, l\'evenement '.$nom. .$prenom. ' a bien été ajouté !</p>';
 //Nom//
 
 	if ($nom == '') {
-		echo '<p class="erreur">Nom non renseigné</p>';
+		echo '<p class="erreur"> Erreur : nom non renseigné</p>';
 	}
 
 	else{
-		echo 'nom : ' .$nom.' bien rajouté ';
+		echo 'Nom : ' .$nom.' bien ajouté ';
 	}
-
-	echo '<br/>';
-
 
 
 //Prénom//
 
 	if ($prenom == '') {
-		echo '<p class="erreur"> PRénom non renseigné</p>';
+		echo '<p class="erreur"> Erreur : prénom non renseigné</p>';
 	}
 
 	else{
-		echo 'prénom : ' .$prénom.' bien rajouté ';
+		echo '<p> Prénom : ' .$prenom.' bien ajouté </p>';
 	}
-
-	echo '<br/>';
-
-
 
 //datedeb//
 
 
 	if(is_numeric($datedeb))
 	{
-		echo 'Date début : '.$datedeb.' ajoutée ';
+		echo '<p> Date début : '.$datedeb.' ajoutée </p> ';
 	}
 
-	elseif (!is_numeric($datedeb))
+	else if (!is_numeric($datedeb) && $datedeb !='YYYYMMJJ')
 	{
-		echo '<p class="erreur"> L\'année renseignée n\'est pas valide</p>'; 
+		echo '<p class="erreur"> Erreur : Date de début en numérique </p>'; 
 	}
 
-	if ($datedeb == '') 
-		{
-			echo '<p class="erreur">Naissance non renseignée</p>';
-		}
+	else if ($datedeb == 'YYYYMMJJ') 
+	{
+		echo '<p class="erreur"> Erreur : date de début non renseignée</p>';
+	}
 		
-
-		echo '<hr/>';
-
-
 
 //datefin//
 
 
 	if(is_numeric($datefin))
 	{
-		echo 'Date de fin : '.$datefin.' ajoutée ';
+		echo '<p> Date de fin : '.$datefin.' ajoutée </p>';
 	}
 
-	elseif (!is_numeric($datefin))
+	elseif (!is_numeric($datefin) && $datefin !='YYYYMMJJ ou null')
 	{
-		echo '<p class="erreur"> L\'année renseignée n\'est pas valide</p>'; 
+		echo '<p class="erreur"> Erreur : Date de fin en numérique et non null </p>'; 
 	}
 
-	if ($datefin == '') 
+	if ($datefin == 'YYYYMMJJ ou null') 
 		{
-			echo '<p class="erreur">Naissance non renseignée</p>';
+			echo '<p class="erreur"> Erreur : date de fin non renseignée </p>';
 		}
 		
-
-		echo '<hr/>';
-
-
 // Divers
-
-
 
 	if ($divers == '') 
 	{
-		echo '<p class="erreur">Vous n avez laissé aucun commentaire</p>';
+		echo '<p class="erreur"> Erreur : vous n\'avez laissé aucune description </p>';
 	}
 	
-	echo '<hr/>';
+?>
 
+<!-- Recommencez l'insertion dans la base de données -->
+<a href="news.php"> Recommencez l'insertion </a>
 
+<?php
 include ("../includes/footer.php");
 ?>	
