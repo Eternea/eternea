@@ -1,0 +1,58 @@
+#header {
+	width: 998;
+	height:50px;
+	border:1px solid #F00
+}
+
+#menu {
+	width:150px;
+	height:800px;
+	float:left;
+	border:1px solid #0F0
+}
+
+#contenu {
+	width:846px;
+	float:left;
+	border:1px solid #00F
+}
+
+#footer {
+	width:998;
+	height:100px;
+	clear:both;
+	border:1px solid #000
+}
+
+#afficheFrise{
+	width:846px;
+	left:151px;
+	position:absolute;
+	border:1px solid #00D
+}
+
+#date {
+	border:1px solid #00F
+}
+
+#frise {
+	float:left;
+	border:1px solid #00F
+}
+
+
+label {
+   display: block;
+   width: 150px;
+   float: left;
+}
+
+table {
+	border:1px solid #000;
+
+}
+td {
+	border:1px solid #EEE;
+
+
+}

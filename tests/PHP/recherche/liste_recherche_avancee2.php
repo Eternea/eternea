@@ -151,13 +151,14 @@ while ($ligne = $result->fetch_assoc()){
 	$divers=$ligne['divers'];
 
 $tableau[$i++] = $ligne;
-$nomCheckBox = "nomCheckBox".$i;
-
-//Mise en place d'une Checkbox à côté des résultats - insérer id au sein des checkbox pour pouvoir visualiser celles qui seront "checkées" ou non
-echo "
-	<form method=\"POST\" action=\"liste_recherche_avancee2.php\" style=\"line-height:2em\"  id=\"formulaire\"> 
-		<INPUT type=\"checkbox\" name=\"".$nomCheckBox."\">".$nom.' '.$prenom.'<br/>';
 ?>
+
+<!-- Mise en place d'une Checkbox à côté des résultats-->
+<ul>
+	<form method="POST" action="liste_recherche_avancee2.php" style="line-height:2em"  id="formulaire"> 
+		<INPUT type="checkbox" name="nometprenom"> <?php echo ''.$nom. ' '; echo $prenom; ?>
+	
+</ul>
 <?php
 }
 
