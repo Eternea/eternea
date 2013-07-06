@@ -2,12 +2,9 @@
 $titre = "	";
 include ("../includes/header.php");
 include ("../includes/menu.php");
+include("../includes/sql.php");
 ?>
 
-
-
-
-<html>
 	<head> <title> Recherche </title> </head>
 		<body>
 			<form method="POST" action="liste_recherche.php" style="line-height:2em"  id="formulaire"> 
@@ -31,8 +28,9 @@ include ("../includes/menu.php");
 			<!-- Fin Effacer -->
 
 			</form>
+
+			<a href="recherche_avancee.php"> Recherche Avancée </a>
 		</body>
-</html>
 
 
 <?php

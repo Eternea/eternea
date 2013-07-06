@@ -54,7 +54,6 @@ $result  =$connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion-
 
 
 //Affichage
-echo '<ul>';
 
 $tableau = array();
 $i=0;
@@ -70,12 +69,12 @@ $tableau[$i++] = $ligne;
 ?>
 
 <!-- Mise en place d'une Checkbox à côté des résultats-->
+<ul>
 	<form method="POST" action="liste_recherche.php" style="line-height:2em"  id="formulaire"> 
 		<INPUT type="checkbox" name="nometprenom"> <?php echo ''.$nom. ' '; echo $prenom; ?>
-		<br/>
-	</form> <br/>
+	</form>
 </ul>
-<hr/>
+
 
 <?php
 }
@@ -85,10 +84,12 @@ $requeterech = "INSERT INTO recherche (nom,prenom,datedeb,datefin,divers) VALUES
 //$connexion->query($requeterech) or die ('Erreur '.$requeterech.' '.$connexion->error);
 
 ?>
-
+<hr/>
+<!--
 <?php
 include ("../frise/frise.php");
 ?>
+-->
 
 <!-- Objectif: voir si la case est cochée ou non pour la mettre dans la sauvegarde
 1/ Créer un bouton ok qui renvoie vers une fonction qui ne garderait que les cases qui sont cochées ou non
