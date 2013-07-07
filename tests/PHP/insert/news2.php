@@ -6,19 +6,29 @@ include ("../includes/sql.php");
 
 // récupération des variables postées dans le formulaire
 // TODO : contrôles d'erreurs
+$type = strip_tags($_POST['type']);
 $nom=strip_tags($_POST['nom']);
 $prenom=strip_tags($_POST['prenom']);
-$datedeb = strip_tags($_POST['datedeb']);
-$datefin = strip_tags($_POST['datefin']);
+//date de début
+$anneedebut = strip_tags($_POST['anneedebut']);
+$moisdebut = strip_tags($_POST['moisdebut']);
+$jourdebut = strip_tags($_POST['jourdebut']);
+//date de fin
+$anneefin = strip_tags($_POST['anneefin']);
+$moisfin = strip_tags($_POST['moisfin']);
+$jourfin = strip_tags($_POST['jourfin']);
+
 $divers = strip_tags($_POST['divers']);
 
+$datedeb= $anneedebut.'-'.$moisdebut.'-'.$jourdebut;
+$datefin= $anneefin.'-'.$moisfin.'-'.$jourfin;
 
-if ($datefin == "null"){
+if ($datefin == "--"){
 $datefin = "";
 }
 
 // requete ajout d'actualité + envoi
-$requete = "INSERT INTO evenement (nom,prenom,datedeb,datefin,divers) VALUES ('$nom', '$prenom','$datedeb','$datefin','$divers')";
+$requete = "INSERT INTO evenement (nom,prenom,datedeb,datefin,divers,type) VALUES ('$nom', '$prenom','$datedeb','$datefin','$divers','$type')";
 $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
 
 // ok
@@ -46,50 +56,6 @@ $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
 
 	else{
 		echo '<p> Prénom : ' .$prenom.' bien ajouté </p>';
-	}
-
-//datedeb//
-
-
-	if(is_numeric($datedeb))
-	{
-		echo '<p> Date début : '.$datedeb.' ajoutée </p> ';
-	}
-
-	else if (!is_numeric($datedeb) && $datedeb !='YYYYMMJJ')
-	{
-		echo '<p class="erreur"> Erreur : Date de début en numérique </p>'; 
-	}
-
-	else if ($datedeb == 'YYYYMMJJ') 
-	{
-		echo '<p class="erreur"> Erreur : date de début non renseignée</p>';
-	}
-		
-
-//datefin//
-
-
-	if(is_numeric($datefin))
-	{
-		echo '<p> Date de fin : '.$datefin.' ajoutée </p>';
-	}
-
-	elseif (!is_numeric($datefin) && $datefin !='YYYYMMJJ ou null')
-	{
-		echo '<p class="erreur"> Erreur : Date de fin en numérique et non null </p>'; 
-	}
-
-	if ($datefin == 'YYYYMMJJ ou null') 
-		{
-			echo '<p class="erreur"> Erreur : date de fin non renseignée </p>';
-		}
-		
-// Divers
-
-	if ($divers == '') 
-	{
-		echo '<p class="erreur"> Erreur : vous n\'avez laissé aucune description </p>';
 	}
 	
 ?>
