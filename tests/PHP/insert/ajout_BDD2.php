@@ -66,7 +66,7 @@ $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
 ?>
 
 <!-- Recommencez l'insertion dans la base de données -->
-<a href="news.php"> Recommencez l'insertion </a>
+<a href="ajout_BDD.php"> Recommencez l'insertion </a>
 
 <?php
 include ("../includes/footer.php");

@@ -38,47 +38,47 @@ $type = $ligne['type'];
 <!-- Nom -->
 <p>
 <label for= "nom">Nom/ titre : </label>
-<input type="text" size="50" maxlength="250"id="nom" name="nom" />
+<input type="text" size="50" maxlength="250"id="nom" name="nom" value="<?php echo $prenom ?>"/>
 </p>
 
 
 <!-- Prenom -->
 <p>
 <label for= "prenom">Prénom : </label>
-<input id="prenom" size="50" type="text" maxlength="250" name="prenom"/>
+<input id="prenom" size="50" type="text" maxlength="250" name="prenom" value="<?php echo $nom ?>"/>
 </p>
 
 
 <!-- Date début -->
 <p>
 <label for= "datedeb">date de naissance :</label>
-<input id="datedeb" size="50" type="text" maxlength="250" value="YYYY-MM-JJ" name="datedeb"/>
+<input id="datedeb" size="50" type="text" maxlength="250" name="datedeb" value="<?php echo $datedeb ?>"/>
 </p>
 
 
 <!-- Date fin -->
 <p>
 <label for= "datefin">date de fin :</label>
-<input id="datefin" size="50" type="text" maxlength="250" value="YYYY-MM-JJ ou null" name="datefin"/>
+<input id="datefin" size="50" type="text" maxlength="250" value="<?php echo $datefin ?>" name="datefin"/>
 </p>
 
 
 <!-- Type -->
 <p>
 <label for= "type"> Type : </label>
-<input type="text" size="50" maxlength="250"id="type" name="type" />
+<input type="text" size="50" maxlength="250"id="type" name="type" value="<?php echo $type ?>" />
 </p>
 
 <!-- divers -->
 <p>
 <label for= "divers"> Divers : </label>
-<textarea name="divers" rows="30" cols="80" /></textarea>
+<textarea name="divers" rows="30" cols="80" value="<?php echo $divers ?>"/></textarea>
 </p>
 
 
 <!--envoi et effacer -->
-<input type="submit"/>
-<input type="reset"/>
+<input type="submit" value="Modifier"/>
+<input type="reset" value="Recommencer"/>
 </form>
 
 
