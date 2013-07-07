@@ -38,13 +38,13 @@ echo "</SELECT>";
 <h3> Date de début : </h3>
 
 <p><label for= "anneedebut"> année :</label>
-<input id="anneedebut" size="4" type="text" maxlength="4" name="anneedebut"/>
+<input id="anneedebut" size="4" type="text" maxlength="4" name="anneedebut" value="1990"/>
 </p>
 <p><label for= "moisdebut"> mois :</label>
-<input id="moisdebut" size="2" type="text" maxlength="2" name="moisdebut"/>
+<input id="moisdebut" size="2" type="text" maxlength="2" name="moisdebut" value="01"/>
 </p>
 <p><label for= "jourdebut"> jour  :</label>
-<input id="jourdebut" size="2" type="text" maxlength="2" name="jourdebut"/>
+<input id="jourdebut" size="2" type="text" maxlength="2" name="jourdebut" value="01"/>
 </p>
 
 
@@ -55,10 +55,10 @@ echo "</SELECT>";
 <input id="anneefin" size="4" type="text" maxlength="4" name="anneefin"/>
 </p>
 <p><label for= "moisfin"> mois :</label>
-<input id="moisfin" size="2" type="text" maxlength="2" name="moisfin"/>
+<input id="moisfin" size="2" type="text" maxlength="2" name="moisfin" value="01"/>
 </p>
 <p><label for= "jourfin"> jour  :</label>
-<input id="jourfin" size="2" type="text" maxlength="2" name="jourfin"/>
+<input id="jourfin" size="2" type="text" maxlength="2" name="jourfin" value="01"/>
 </p>
 
 
