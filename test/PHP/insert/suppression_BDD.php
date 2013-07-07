@@ -16,7 +16,7 @@ $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
 
 
 // ok
-echo '<p>L\'événement '.$prenom.' '.$nom.' a bien été supprimé </p>';
+echo '<p>L\'événement a bien été supprimé </p>';
 
 
 
