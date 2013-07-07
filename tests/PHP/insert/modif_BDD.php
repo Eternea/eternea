@@ -38,14 +38,14 @@ $type = $ligne['type'];
 <!-- Nom -->
 <p>
 <label for= "nom">Nom/ titre : </label>
-<input type="text" size="50" maxlength="250"id="nom" name="nom" value="<?php echo $prenom ?>"/>
+<input type="text" size="50" maxlength="250"id="nom" name="nom" value="<?php echo $nom ?>"/>
 </p>
 
 
 <!-- Prenom -->
 <p>
 <label for= "prenom">Prénom : </label>
-<input id="prenom" size="50" type="text" maxlength="250" name="prenom" value="<?php echo $nom ?>"/>
+<input id="prenom" size="50" type="text" maxlength="250" name="prenom" value="<?php echo $prenom ?>"/>
 </p>
 
 
