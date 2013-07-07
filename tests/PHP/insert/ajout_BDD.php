@@ -7,20 +7,18 @@ include ("../includes/sql.php");
 
 <form method="POST" action="ajout_BDD2.php">
 
-
 <?php
-//echo "<SELECT NAME='Uti' onChange='FocusObjet()'>"; 
-//$requete = "SELECT nomtypeevent  FROM typeevent"; 
-//$result = $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
+$requete = "SELECT nomtypeevent  FROM typeevent"; 
+$result = $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
 
-//while ($tab = $result->fetch_assoc()) 
-//$nomtype[]=$tab->nomtypeevent;
-//echo "<select multiple size='2' id='type' name='type'>";
-//for ($i = 0; $i<count($nomtype);$i++)
+echo "Type d'évènement: ";
+while ($tab = $result->fetch_assoc()) 
+$nomtype[]=$tab['nomtypeevent'];
+echo "<select id='type' name='type'>";
+for ($i = 0; $i<count($nomtype);$i++)
 
-//echo "<OPTION VALUE='$nomtype[$i]'> $nomtype[$i]</OPTION>\n"; 
-
-//echo "</SELECT>";
+echo "<OPTION VALUE=" .$nomtype[$i]. '>' .$nomtype[$i].'</OPTION>\n'; 
+echo "</SELECT>";
 ?>
 
 <!-- Nom -->
@@ -32,30 +30,37 @@ include ("../includes/sql.php");
 
 <!-- Prenom -->
 <p>
-<label for= "prenom">Pr�nom : </label>
+<label for= "prenom">Prénom : </label>
 <input id="prenom" size="50" type="text" maxlength="250" name="prenom"/>
 </p>
 
 
-<!-- Date d�but -->
-<p>
-<label for= "datedeb">date de naissance :</label>
-<input id="datedeb" size="50" type="text" maxlength="250" value="YYYY-MM-JJ" name="datedeb"/>
+<h3> Date de début : </h3>
+
+<p><label for= "anneedebut"> année :</label>
+<input id="anneedebut" size="4" type="text" maxlength="4" name="anneedebut" value="1990"/>
+</p>
+<p><label for= "moisdebut"> mois :</label>
+<input id="moisdebut" size="2" type="text" maxlength="2" name="moisdebut" value="01"/>
+</p>
+<p><label for= "jourdebut"> jour  :</label>
+<input id="jourdebut" size="2" type="text" maxlength="2" name="jourdebut" value="01"/>
 </p>
 
 
 <!-- Date fin -->
-<p>
-<label for= "datefin">date de fin :</label>
-<input id="datefin" size="50" type="text" maxlength="250" value="YYYY-MM-JJ ou null" name="datefin"/>
+<h3> Date de fin : </h3>
+
+<p><label for= "anneefin"> année :</label>
+<input id="anneefin" size="4" type="text" maxlength="4" name="anneefin"/>
+</p>
+<p><label for= "moisfin"> mois :</label>
+<input id="moisfin" size="2" type="text" maxlength="2" name="moisfin" value="01"/>
+</p>
+<p><label for= "jourfin"> jour  :</label>
+<input id="jourfin" size="2" type="text" maxlength="2" name="jourfin" value="01"/>
 </p>
 
-
-<!-- type -->
-<p>
-<label for= "type"> Type : </label>
-<input id="type" size="50" type="text" maxlength="250" name="type"/>
-</p>
 
 <!-- divers -->
 <p>

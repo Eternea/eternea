@@ -4,26 +4,40 @@ include ("../includes/header.php");
 include ("../includes/menu.php");
 include ("../includes/sql.php");
 
-// récupération des variables postées dans le formulaire
-// TODO : contrôles d'erreurs
+// rÃ©cupÃ©ration des variables postÃ©es dans le formulaire
+// TODO : contrÃ©les d'erreurs
+$type = strip_tags($_POST['type']);
 $nom=strip_tags($_POST['nom']);
 $prenom=strip_tags($_POST['prenom']);
-$datedeb = strip_tags($_POST['datedeb']);
-$datefin = strip_tags($_POST['datefin']);
-$divers = strip_tags($_POST['divers']);
-$type = strip_tags($_POST['type']);
-
-
-if ($datefin == "null"){
-$datefin = "9999";
+//date de dÃ©but
+$anneedebut = strip_tags($_POST['anneedebut']);
+$moisdebut = strip_tags($_POST['moisdebut']);
+$jourdebut = strip_tags($_POST['jourdebut']);
+//date de fin
+$anneefin = strip_tags($_POST['anneefin']);
+if ($anneefin == "") {
+	$moisfin = "";
+	$jourfin = "";
+} else {
+	$moisfin = strip_tags($_POST['moisfin']);
+	$jourfin = strip_tags($_POST['jourfin']);
 }
 
-// requete ajout d'actualité + envoi
-$requete = "INSERT INTO evenement (nom,prenom,datedeb,datefin,divers,type) VALUES ('$nom', '$prenom','$datedeb','$datefin','$divers', '$type')";
+$divers = strip_tags($_POST['divers']);
+
+$datedeb= $anneedebut.'-'.$moisdebut.'-'.$jourdebut;
+$datefin= $anneefin.'-'.$moisfin.'-'.$jourfin;
+
+if ($datefin == "--"){
+$datefin = "";
+}
+
+// requete ajout d'actualitÃ© + envoi
+$requete = "INSERT INTO evenement (nom,prenom,datedeb,datefin,divers,type) VALUES ('$nom', '$prenom','$datedeb','$datefin','$divers','$type')";
 $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
 
 // ok
-//echo '<p>Merci, l\'evenement '.$nom.  ' ' .$prenom. ' a bien été ajouté !</p>';
+//echo '<p>Merci, l\'evenement '.$nom.  ' ' .$prenom. ' a bien Ã©tÃ© ajoutÃ© !</p>';
 
 
 // Gestion des erreurs
@@ -31,81 +45,28 @@ $connexion->query($requete) or die ('Erreur '.$requete.' '.$connexion->error);
 //Nom//
 
 	if ($nom == '') {
-		echo '<p class="erreur"> Erreur : nom non renseigné</p>';
+		echo '<p class="erreur"> Erreur : nom non renseignÃ©</p>';
 	}
 
 	else{
-		echo 'Nom : ' .$nom.' bien ajouté ';
+		echo 'Nom : ' .$nom.' bien ajoutÃ© ';
 	}
 
 
-//Prénom//
+//PrÃ©nom//
 
 	if ($prenom == '') {
-		echo '<p class="erreur"> Erreur : prénom non renseigné</p>';
+		echo '<p class="erreur"> Erreur : prÃ©nom non renseignÃ©</p>';
 	}
 
 	else{
-		echo '<p> Prénom : ' .$prenom.' bien ajouté </p>';
-	}
-
-//datedeb//
-
-
-	if(is_numeric($datedeb))
-	{
-		echo '<p> Date début : '.$datedeb.' ajoutée </p> ';
-	}
-
-	else if (!is_numeric($datedeb) && $datedeb !='YYYYMMJJ')
-	{
-		echo '<p class="erreur"> Erreur : Date de début en numérique </p>'; 
-	}
-
-	else if ($datedeb == 'YYYYMMJJ') 
-	{
-		echo '<p class="erreur"> Erreur : date de début non renseignée</p>';
-	}
-		
-
-//datefin//
-
-
-	if(is_numeric($datefin))
-	{
-		echo '<p> Date de fin : '.$datefin.' ajoutée </p>';
-	}
-
-	elseif (!is_numeric($datefin) && $datefin !='YYYYMMJJ ou null')
-	{
-		echo '<p class="erreur"> Erreur : Date de fin en numérique et non null </p>'; 
-	}
-
-	if ($datefin == 'YYYYMMJJ ou null') 
-		{
-			echo '<p class="erreur"> Erreur : date de fin non renseignée </p>';
-		}
-		
-// Divers
-
-	if ($divers == '') 
-	{
-		echo '<p class="erreur"> Erreur : vous n\'avez laissé aucune description </p>';
-	}
-
-
-// Type
-
-		if ($type == '') 
-	{
-		echo '<p class="erreur"> Erreur : vous n\'avez laissé aucun type </p>';
+		echo '<p> PrÃ©nom : ' .$prenom.' bien ajoutÃ© </p>';
 	}
 	
 ?>
 
-
-<!-- Recommencez l'insertion dans la base de données -->
-<a href="ajout_BDD.php"> Recommencez l'insertion </a>
+<!-- Recommencez l'insertion dans la base de donnÃ©es -->
+<a href="news.php"> Recommencez l'insertion </a>
 
 <?php
 include ("../includes/footer.php");

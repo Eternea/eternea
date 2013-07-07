@@ -5,7 +5,7 @@ include ("../includes/menu.php");
 ?>
 <p>Administration</p>
 
-<a href="news.php">add</a>
+<a href="ajout_BDD.php">add</a>
 <br>
 <a href="baseevent.php">base</a>
 
